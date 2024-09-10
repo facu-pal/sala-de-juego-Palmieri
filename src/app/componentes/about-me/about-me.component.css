@@ -1,8 +1,25 @@
 
 
 .main{
-    background-image: url('https://img.freepik.com/vector-premium/vectores-e-ilustraciones-stock-marco_662550-40.jpg');
+    background-image: url('https://wallpapers.com/images/hd/game-night-background-poemd877bzft58ix.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+
+  .divFondo {
+    background-color: rgba(255, 255, 255, 0.6); 
+    padding: 20px; 
+    border-radius: 10px;
+} 
+
+.divFondo h2 {
+    color: #333; 
+    font-size: 2rem; 
+}
+
+.divFondo p {
+    color: #444; 
+    font-size: 1.8rem; 
 }
