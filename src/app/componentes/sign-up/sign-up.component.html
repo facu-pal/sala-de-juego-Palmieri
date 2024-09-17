@@ -8,16 +8,41 @@
         <h3>Registrarse</h3>
     
         <label for="mail">Mail</label>
-        <input type="text" placeholder="Ingrese su mail" id="mail">
-
-        <label for="usuario">Nombre de usuario</label>
-        <input type="text" placeholder="Nombre de usuario" id="usuario">
+        <input type="text" [(ngModel)]="mail" placeholder="Ingrese su mail" name="mail">
 
         <label for="Contraseña">Contraseña</label>
-        <input type="password" placeholder="Contraseña" id="contraseña">
-    
-        <button class="btnRegistrarse"  routerLink="../home" routerLinkActive="active">Registrarse</button>
+        <input type="password" [(ngModel)]="contra" placeholder="Contraseña" name="contra">
 
+        <label for="RepetirContraseña">Repetir ontraseña</label>
+        <input type="password"  [(ngModel)]="contraConfir" placeholder="Repetir Contraseña" name="contraConfir">
+    
+        <!-- <button class="btnRegistrarse"  routerLink="../home" routerLinkActive="active">Registrarse</button> -->
+        <button class="btnRegistrarse" (click)="Register()" routerLinkActive="active">Registrarse</button>
     </form>
+    
+    <div *ngIf="flagError" class="overlay">
+      <div class="custom-alert error-alert">
+        <div class="custom-alert-header">
+          <span>Error</span>
+          <span class="close-btn" (click)="closeErrorAlert()">×</span>
+        </div>
+        <div class="custom-alert-body">
+          {{ msjError }}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Alert de éxito -->
+    <div *ngIf="flagSuccess" class="overlay">
+      <div class="custom-alert success-alert">
+        <div class="custom-alert-header">
+          <span>Creado</span>
+          <span class="close-btn" (click)="closeSuccessAlert()">×</span>
+        </div>
+        <div class="custom-alert-body">
+          Usuario creado con éxito
+        </div>
+      </div>
+    </div>
 
 </div>

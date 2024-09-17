@@ -1,4 +1,4 @@
-<div class="main min-vh-100 ">
+<div class="main min-vh-100">
 
     <div class="background ">
         <div class="shape separacion"></div>
@@ -8,17 +8,40 @@
         <h3>Iniciar sesion</h3>
     
         <label for="mail">Mail</label>
-        <input type="text" placeholder="Ingrese su mail" id="mail">
+        <input type="text"  [(ngModel)]="mail" placeholder="Ingrese su mail" name="mail">
     
-        <label for="Contraseña">Contraseña</label>
-        <input type="password" placeholder="Contraseña" id="contraseña">
+        <label for="contra">Contraseña</label>
+        <input type="password" [(ngModel)]="contra" placeholder="Contraseña" name ="contra">
     
-        <button class="btnLogin" >Iniciar sesion</button>
+        <button class="btnLogin" (click)="login()" >Iniciar sesion</button>
         <div class="social">
           <button  routerLink="../registrarse" routerLinkActive="active"> registrarse</button>
-          <button class="ar"> accesso rapido</button>
+          <button class="ar" (click)="registroAutomatico()"> accesso rapido</button>
 
         </div>
     </form>
-
+    <div *ngIf="flagError" class="overlay">
+      <div class="custom-alert error-alert">
+        <div class="custom-alert-header">
+          <span>Error</span>
+          <span class="close-btn" (click)="closeErrorAlert()">×</span>
+        </div>
+        <div class="custom-alert-body">
+          {{ msjError }}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Alert de éxito -->
+    <div *ngIf="flagSuccess" class="overlay">
+      <div class="custom-alert success-alert">
+        <div class="custom-alert-header">
+          <span>Iniciar sesion</span>
+          <span class="close-btn" (click)="closeSuccessAlert()">×</span>
+        </div>
+        <div class="custom-alert-body">
+          Inicio de sesion exitoso
+        </div>
+      </div>
+    </div>
 </div>
