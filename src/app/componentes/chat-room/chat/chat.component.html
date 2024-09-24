@@ -1,0 +1,32 @@
+<div class="main min-vh-100">
+	<header class="py-5">
+	  <div class="container px-lg-5">
+		<div class="p-lg-2 rounded-3 text-center divTitulo">
+		  <div class="m-4 m-lg-5">
+			<h1 class="display-5 fw-bold image-text">Sala de chat prueba</h1>
+			<h2 class="display-7">¡Te doy la bienvenida para hablar con toda la comunidad!</h2>
+		  </div>
+		</div>
+	  </div>
+	</header>
+  
+	<div class="prueba">
+		<div class="contenedor-chat a">
+		  <div class="contenido-chat" #contenidoChat>
+			<div *ngFor="let m of mensajes" [ngClass]="m.user === sesion.getUsuario() ? 'mensaje-chat-propio' : 'mensaje-chat'">
+			  <p class="hora-mensaje">{{(m.fecha.seconds * 1000) | date:'dd-MM-yy HH:mm'}} - {{m.user}}:</p>
+			  <p class="mensaje">{{m.mensaje}}</p>
+			</div>
+		  </div>
+
+		  <div class="input">
+			<input  type="text" [(ngModel)]="mensaje" name="mensaje" placeholder="escriba...">
+			<button class="btn-chat" (click)="enviarMensaje()">Enviar</button>
+		  </div>
+		</div>
+
+	</div>
+
+
+  </div>
+  

@@ -1,0 +1,115 @@
+.main{
+    background-image: url('https://wallpapers.com/images/hd/game-night-background-poemd877bzft58ix.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.divTitulo{
+   background-color: rgba(240, 233, 233, 0.5);
+   height: 150px;
+   display: flex; 
+   justify-content: center; 
+   align-items: center;
+}
+
+.contenedor-chat {
+    background-color: #0000009b;
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.prueba{
+    display: flex; /* Usa flexbox para el contenedor padre */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+}
+
+.contenido-chat {
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/517/930/desktop-wallpaper-whatsapp-dark-whatsapp.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-grow: 1; 
+    overflow-y: auto;
+    line-height: 1.0; 
+}
+
+.mensaje-chat-propio{
+    align-self: flex-end;
+    background-color: rgb(125, 136, 138);
+    color: #000;
+    max-width: 500px;
+    min-width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.mensaje-chat{
+    align-self: flex-start;
+    background-color: aliceblue;
+    color: black;
+    max-width: 500px;
+    min-width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+  }
+
+
+
+input,
+button {
+    padding: 10px;
+    margin: 5px;
+    border-radius:10px;
+}
+
+
+.btn-chat{
+    color: #000000;
+    background-color: rgb(125, 136, 138);
+    align-self: center;
+    font-weight: bold;
+    align-self: flex-end;
+}
+.btn-chat:hover{
+    background: #0ac17b; 
+    color: #030303;
+}
+
+.hora-mensaje{
+    font-size: smaller;
+    color: #000; /* Color oscuro */
+    font-weight: bold; /* Negrita */
+}
+
+
+.input input {
+    width: 90%; /* O cualquier porcentaje que desees */
+    max-width: 660px; /* Limita el ancho máximo si es necesario */
+}
+
+.contenido-chat p {
+    margin: 0; /* Elimina márgenes de los párrafos */
+}
+
+.contenido-chat .hora-mensaje,
+.contenido-chat .user,
+.contenido-chat .mensaje {
+    margin-bottom: 5px; /* Menos espacio entre los elementos <p> */
+}
+

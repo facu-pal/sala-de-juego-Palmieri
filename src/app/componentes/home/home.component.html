@@ -18,7 +18,7 @@
             <!-- Page Features-->
             <div class="row gx-lg-5">
                 <div class="col-lg-6 col-xxl-6 mb-5 ">
-                    <div class="card divjuegos border-0 h-100" >
+                    <div class="card divjuegos border-0 h-100 " (click)="selecGame('ahorcado')">
                         <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                             <div class="game-card feature bg-dark  bg-gradient text-white rounded-3 mb-4 mt-n4">
                                 <img src="ahorcado.png" alt="ahorcado">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-xxl-6 mb-5">
-                    <div class="card divjuegos border-0 h-100" >
+                    <div class="card divjuegos border-0 h-100 " (click)="selecGame('mayor')" >
                         <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                             <div class="game-card feature bg-dark bg-gradient text-white rounded-3 mb-4 mt-n4">
                                 <img src="mayor-menor.png" alt="mayor o menor">
@@ -64,6 +64,25 @@
             </div>
         </div>
     </section>
+
+
+    <div  href="#"  class="nav-link" *ngIf="this.auth.currentUser" routerLink="../chat" routerLinkActive="active"> 
+        <app-boton-chat></app-boton-chat>
+    </div>
+
+
+    <div *ngIf="flagError" class="overlay">
+        <div class="custom-alert error-alert">
+          <div class="custom-alert-header">
+            <span>Error</span>
+            <span class="close-btn" (click)="closeErrorAlert()">×</span>
+          </div>
+          <div class="custom-alert-body">
+            {{ msjError }}
+          </div>
+        </div>
+      </div>
+
 
 
 </div>

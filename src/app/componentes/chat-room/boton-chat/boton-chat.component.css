@@ -1,0 +1,41 @@
+
+ .divchat{
+	 background-color: rgba(255, 255, 255, 0.789);
+	 height: 100px;
+	 display: flex; 
+	 justify-content: center; 
+	 align-items: center;
+  }
+ 
+ .card:hover {
+	 cursor: pointer;
+	 filter: brightness(105%);
+	 transform: scale(1.025);
+	 color: #003666;
+	 transition: all .5s ease;
+	 -webkit-box-shadow: 0px 0px 35px 0px rgba(0,0,0,0.75);
+	 box-shadow: 0px 0px 35px 0px rgba(0,0,0,0.75);
+ }
+ 
+ .mt-n4 {
+   margin-top: -1.5rem !important;
+ }
+ 
+ .feature {
+	 display: inline-flex;
+	 align-items: center;
+	 justify-content: center;
+	 height: 4rem;
+	 width: 4rem;
+	 font-size: 2rem;
+ }
+ 
+ .chat-card {
+	 overflow: hidden;
+ }
+ 
+ .chat-card img {
+	 height: 55%;
+	 width: auto;
+	 object-fit: cover;
+ }

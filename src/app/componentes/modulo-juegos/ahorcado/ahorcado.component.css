@@ -1,0 +1,43 @@
+  .main {
+	background-image: url('https://wallpapers.com/images/hd/game-night-background-poemd877bzft58ix.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.divTitulo {
+	background-color: rgba(240, 233, 233, 0.5);
+	height: 150px;
+	display: flex; 
+	justify-content: center; 
+	align-items: center;
+}
+
+.divPuntoVida {
+	background-color: rgba(240, 233, 233, 0.5);
+	height: 50px;
+	width: 320px;
+	max-width: 400;
+	border-radius: 10px;
+}
+
+.divLetras {
+	background-color: rgba(240, 233, 233, 0.8);
+	height: 400px;
+	max-height: 800px;
+	width: 800px;
+	max-width: 900px;
+	border-radius: 10px;
+}
+
+.btn-correct {
+	background-color: green;
+	color: white;
+	border-color: green;
+}
+
+.btn-incorrect {
+	background-color: red;
+	color: white;
+	border-color: red;
+}
