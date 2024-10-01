@@ -12,6 +12,6 @@ export class LoggerJuegoService {
 
   logGameResult(score: number, gameName: string) {
     let col = collection(this.firestore, 'puntoJuegos');
-    addDoc(col, { "puntos":score,"juego":gameName, "user": this.auth.currentUser?.email });
+    addDoc(col, { "puntos":score,"juego":gameName, "user": this.auth.currentUser?.email,fecha: new Date() });
   }
 }

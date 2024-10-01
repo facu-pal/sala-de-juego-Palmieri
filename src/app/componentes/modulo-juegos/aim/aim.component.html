@@ -1,0 +1,47 @@
+<div class="main min-vh-100">
+	<header class="py-3">
+		<div class="container px-lg-5">
+			<div class="p-lg-2  rounded-3 text-center divTitulo" >
+				<div class="m-4 m-lg-5">
+					<h1 class="display-5 fw-bold image-text">Aim traini</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="drawing d-flex flex-column justify-content-center align-items-center py-3 ps-0 pe-5">
+		<div class="m-2 d-flex gap-5 divPunto">
+			<span class="game-info">Puntos: {{ this.score }}</span>
+            <div *ngIf="gameStarted">
+            <span class="game-info">Tiempo: {{ remainingTime }} segundos</span>
+		</div>
+	</div>
+
+    <div class="aim-trainer" (click)="missTarget()"> 
+        <button class="dark-button" *ngIf="!gameStarted" (click)="startGame()">Empezar</button>
+        <div *ngIf="gameStarted">
+            <div class="target" 
+                 *ngFor="let target of targets" 
+                 [ngStyle]="target.style" 
+                 (click)="hitTarget(target); $event.stopPropagation()"> 
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+    <!-- Alert de éxito -->
+    <div *ngIf="flagGame" class="overlay">
+		<div class="custom-alert success-alert">
+		  <div class="custom-alert-header">
+			<span>Juego terminado</span>
+			<span class="close-btn" (click)="closeSuccessAlert()">×</span>
+		  </div>
+		  <div class="custom-alert-body">
+			<p>Puntos:{{score}}</p>	
+		  </div>
+		</div>
+	  </div>

@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+
 import { LoggerJuegoService } from '../../../servicios/logJuego.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class AhorcadoComponent implements OnInit {
 		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 
 		'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 	];
+	
 
   wordsList: string[] = [
     'Goku', 'Vegeta', 'Piccolo', 'Gohan', 'Trunks', 'Bulma', 'Krillin', 'Freezer', 'Cell', 'Majin',
@@ -23,10 +25,12 @@ export class AhorcadoComponent implements OnInit {
 	activeWord:string = '';
 	splittedWord: string[] = 'casa'.split('');
 	secretWord: string[] = [];
+	imgNumber:number=0;
+	flagGame: boolean = false;
 
 	lettersAlreadySelected:string[] = [];
 	
-	attemps:number = 0;
+	attemps:number = 6;
 
   gameStatus: 'initial'|'in-progress'|'finished' = 'initial';
 	score:number = 0;
@@ -49,11 +53,11 @@ export class AhorcadoComponent implements OnInit {
 	}
 
 	newGame(){
-		this.attemps = 8;
 		this.lettersAlreadySelected = [];
 		this.activeWord = this.wordsList.splice( 0, 1)[0];
 		this.splittedWord = this.activeWord.split('');
-
+		console.log("Palabra a descubrir:", this.activeWord);
+		
 		this.splittedWord = this.splittedWord.map(x => { 
 			let uppercaseLetter = x.toUpperCase();
 			let finalLetter =  this.removeAccents(uppercaseLetter);
@@ -64,6 +68,13 @@ export class AhorcadoComponent implements OnInit {
 			return '_';
 		})
 	}
+
+
+	setImage() {
+		return `pos-${this.imgNumber}.jpg`;
+	}
+
+
 
 	removeAccents (str:string) {
 		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -93,6 +104,7 @@ export class AhorcadoComponent implements OnInit {
 			}
 		} else {
 			this.attemps--;
+			this.imgNumber++;
 			if (this.attemps == 0) {
 				if (this.score > 0) {
 					this.score -= 10;
@@ -103,15 +115,26 @@ export class AhorcadoComponent implements OnInit {
 	}
 
 	onFailedGame(){
-		this.loggerJuegoService.logGameResult(this.score,"ahorcado");
-		this.score = 0;
-		this.attemps =8;
+		
+		this.attemps =6;
+		this.imgNumber =0;
+		this.flagGame = true;
 		for (let index = 0; index < this.splittedWord.length; index++) {
 			const element = this.splittedWord[index].toUpperCase();
 			this.secretWord[index] = element;
 		}
+		
 		setTimeout(() => {
 			this.newGame();
 		}, 2000);
 	}
+
+
+
+	closeSuccessAlert() {
+		this.loggerJuegoService.logGameResult(this.score,"ahorcado");
+		this.flagGame = false;
+		this.score = 0;
+
+	  }
 }

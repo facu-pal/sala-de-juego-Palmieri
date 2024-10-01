@@ -1,3 +1,4 @@
+<!-- probar main-vs-auto o hacer que  vh le reste el navbar para que ocupe no alla scroll -->
 <div class="main min-vh-100">
 	<header class="py-5">
 		<div class="container px-lg-5">
@@ -40,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-xxl-6 mb-5">
-                    <div class="card divjuegos border-0 h-100" >
+                    <div class="card divjuegos border-0 h-100" (click)="selecGame('preguntados')">
                         <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                             <div class="game-card feature bg-dark bg-gradient text-white rounded-3 mb-4 mt-n4">
                                 <img src="preguntas-respuestas.png" alt="Preguntas y respuestas">
@@ -51,13 +52,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-xxl-6 mb-5">
-                    <div class="card divjuegos border-0 h-100" >
+                    <div class="card divjuegos border-0 h-100" (click)="selecGame('aim-game')" >
                         <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                             <div class="game-card feature bg-dark bg-gradient text-white rounded-3 mb-4 mt-n4">
-                                <img src="mayor-menor.png" alt="Juego Propio">
+                                <img src="apuntar.png" alt="Juego Propio">
                             </div>
-                            <h2 class="fs-4 fw-bold">Juego propio</h2>
-                            <p class="mb-0">Estamos pensando ....</p>
+                            <h2 class="fs-4 fw-bold">Aim Trainer</h2>
+                            <p class="mb-0">¿A cuantos objetivos podras darle en 30 segundos?</p>
                         </div>
                     </div>
                 </div>

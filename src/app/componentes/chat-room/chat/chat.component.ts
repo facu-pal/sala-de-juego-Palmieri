@@ -22,18 +22,18 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.chatSubscription = this.chat.chatCollection$.subscribe(mensajes => {
-      this.mensajes = mensajes;  // Actualiza el array local de mensajes
-      this.scrollToBottom(); // Desplazarse a la parte inferior cuando se reciben mensajes
+      this.mensajes = mensajes;  
+      this.scrollToBottom();
     });
   }
 
   ngAfterViewInit() {
-    this.scrollToBottom(); // Desplazarse a la parte inferior después de que el componente se inicialice
+    this.scrollToBottom(); 
   }
 
   ngOnDestroy() {
     if (this.chatSubscription) {
-      this.chatSubscription.unsubscribe();  // Cancela la suscripción al destruir el componente
+      this.chatSubscription.unsubscribe();  
     }
   }
 

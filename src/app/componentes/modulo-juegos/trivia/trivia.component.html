@@ -1,0 +1,44 @@
+<div class="main min-vh-100">
+	<header class="py-3">
+		<div class="container px-lg-5">
+			<div class="p-lg-2  rounded-3 text-center divTitulo" >
+				<div class="m-4 m-lg-5">
+					<h1 class="display-5 fw-bold image-text">Preguntados</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="p-5 d-flex justify-content-center align-items-center">
+		<div class="d-flex flex-row gap-5">
+			<div class="card">
+				<img class="card-img-top prueba" [src]="this.gameQuestion?.image" alt="Pokémon Image">
+			</div>
+			<div style="max-width: 35vw;" class="card">
+				<div class="p-4">
+					<h4>Puntos: {{this.score}}</h4>
+					<h5 class="card-title">¿Qué Pokémon es?</h5>
+					<p>Seleccione el nombre del Pokémon de la foto entre las opciones en pantalla.</p>
+					<div  class="d-flex flex-column align-items-center" *ngFor="let option of gameQuestion?.options">
+						<button class="mb-4" (click)="onAnswer(option)">{{ option }}</button>
+					</div>	
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+    <!-- Alert de éxito -->
+    <div *ngIf="flagGame" class="overlay">
+		<div class="custom-alert success-alert">
+		  <div class="custom-alert-header">
+			<span>Juego terminado</span>
+			<span class="close-btn" (click)="closeSuccessAlert()">×</span>
+		  </div>
+		  <div class="custom-alert-body">
+			<p>El pokeon es: {{nombrePokemon}}.</p>
+			<p>Puntos:{{score}}</p>
+			
+		  </div>
+		</div>
+	  </div>

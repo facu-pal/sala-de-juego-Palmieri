@@ -22,13 +22,12 @@ export class HomeComponent {
 
 
   selecGame(game: string) {
-		// if (!this.auth.currentUser) {
-		// 	this.msjError = "para jugar inicie sesion";
-    //   this.flagError = true;
-		// } else this.router.navigateByUrl(`juego/${game}`);
-    this.msjError =game;
-    console.log(this.msjError);
-    this.router.navigateByUrl(`juego/${game}`);
+		 if (!this.auth.currentUser) {
+		 	this.msjError = "para jugar inicie sesion";
+       this.flagError = true;
+		} else this.router.navigateByUrl(`juego/${game}`);
+
+    //this.router.navigateByUrl(`juego/${game}`);
 	}
   
   closeErrorAlert() {

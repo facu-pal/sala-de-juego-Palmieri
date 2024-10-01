@@ -1,0 +1,145 @@
+.main {
+	background-image: url('https://wallpapers.com/images/hd/game-night-background-poemd877bzft58ix.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.divTitulo {
+	background-color: rgba(240, 233, 233, 0.5);
+	height: 100px;
+	display: flex; 
+	justify-content: center; 
+	align-items: center;
+}
+
+.divPunto {
+    background-color: rgba(240, 233, 233, 0.5);
+    height: 50px;
+    width: 400px;
+    max-width: 400px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;    /* Centrar verticalmente */
+}
+
+.game-info {
+    font-size: 20px; /* Aumenta el tamaño de la fuente */
+  }
+
+  .aim-trainer {
+    position: relative;
+    width: 800px;
+    height: 450px;
+    /* background-color: #569dfa; */
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20240227/pngtree-forest-wallpapers-image_15632304.jpg");
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    border-radius: 10px;
+    cursor: crosshair;
+  }
+  
+
+  
+  .target {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url("https://c0.klipartz.com/pngpicture/848/923/gratis-png-dardos-de-tiro-blanco-diana-ojiva-s.png");
+    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    cursor: crosshair;
+
+  }
+
+  button{
+    width: 200px;
+    border-radius: 10px;
+    padding: 5px 10px 10px 5px;
+    font-size: 20px;
+    text-align: center;
+
+  }
+ 
+  .dark-button {
+    color: #000000; 
+    background-color: #f0f8ffde;
+    transition: color 0.3s; 
+}
+
+.dark-button:hover {
+    color: #333333; 
+}
+
+.dark-button:active {
+    color: #666666; 
+}
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    }
+    .custom-alert {
+      background-color: rgba(255, 255, 255, 0.9); /* Blanco medio transparente */
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 400px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Estilo del header del alert */
+    .custom-alert-header {
+      padding: 10px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center; /* Centra el título */
+      align-items: center;
+      position: relative; /* Necesario para posicionar el close-btn */
+    }
+    
+    /* Estilo del cuerpo del alert */
+    .custom-alert-body {
+      padding: 15px;
+      color: #333;
+      text-align: center; /* Centrar texto del cuerpo */
+    }
+    
+    /* Mantener el botón de cerrar alineado a la derecha */
+    .close-btn {
+      font-size: 20px;
+      cursor: pointer;
+      color: rgb(0, 0, 0);
+      padding: 0 10px;
+      position: absolute; /* Permite la posición relativa al contenedor padre */
+      right: 10px; /* Alinea a la derecha del contenedor */
+      top: 10px; /* Ajusta la posición superior */
+    }
+    
+    .close-btn:hover {
+      color: #9eb384;
+    }
+      
+    /* Estilo específico para el alert de éxito */
+    .success-alert {
+      border-color: #f3f3f3; /* Verde de éxito */
+      background-color: #ffffffde; /* Verde de éxito */
+    
+    }

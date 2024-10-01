@@ -11,7 +11,7 @@
 	</header>
   
 	<div class="prueba">
-		<div class="contenedor-chat a">
+		<div class="contenedor-chat ">
 		  <div class="contenido-chat" #contenidoChat>
 			<div *ngFor="let m of mensajes" [ngClass]="m.user === sesion.getUsuario() ? 'mensaje-chat-propio' : 'mensaje-chat'">
 			  <p class="hora-mensaje">{{(m.fecha.seconds * 1000) | date:'dd-MM-yy HH:mm'}} - {{m.user}}:</p>
