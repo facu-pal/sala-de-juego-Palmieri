@@ -23,7 +23,7 @@ export class HomeComponent {
 
   selecGame(game: string) {
 		 if (!this.auth.currentUser) {
-		 	this.msjError = "para jugar inicie sesion";
+		 	this.msjError = "Para jugar inicie sesion";
        this.flagError = true;
 		} else this.router.navigateByUrl(`juego/${game}`);
 

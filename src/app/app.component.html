@@ -13,8 +13,10 @@
                 <li class="nav-item"><a class="nav-link" routerLink="home" routerLinkActive="active">Home</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="sobreMi" routerLinkActive="active">Sobre mí</a></li>
                 <li class="nav-item"><a class="nav-link" *ngIf="!this.auth.currentUser"  routerLink="iniciarSesion" routerLinkActive="active">Iniciar sesión</a></li>
+                <li class="nav-item"><a  href="#"  class="nav-link" *ngIf="this.auth.currentUser"  routerLink="encuesta" routerLinkActive="active" >Encuesta</a></li>
                 <li class="nav-item"><a href="#"  class="nav-link" *ngIf="this.auth.currentUser" >{{auth.currentUser.email ? auth.currentUser.email : 'No email available'}}</a></li>
                 <li class="nav-item"><a  href="#"  class="nav-link" *ngIf="this.auth.currentUser" (click)="cerrarSesion()" >Cerrar sesión</a></li>
+
             </ul>
         </div>
     </div>

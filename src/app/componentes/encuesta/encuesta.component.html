@@ -1,0 +1,186 @@
+<div class="main min-vh-100">
+  <header class="py-3">
+    <div class="container px-lg-5">
+      <div class="p-lg-2 rounded-3 text-center divTitulo">
+        <div class="m-4 m-lg-5">
+          <h1 class="display-5 fw-bold image-text">Encuesta</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mt-5 divInformacionPersonal">
+    <h4 class="mb-3 text-center fs-1">Informacion personal</h4>
+    <form
+      class="needs-validation"
+      [formGroup]="encuestaForm"
+      (ngSubmit)="submit()"
+    >
+      <div class="row ">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">Nombre</label>
+          <input type="text" class="form-control" id="nombre" formControlName="nombre" required />
+          <div class="text-danger m-auto" *ngIf="encuestaForm.controls['nombre'].errors !== null && encuestaForm.controls['nombre'].touched " >
+            <small *ngIf="encuestaForm.controls['nombre'].errors!['required']">
+              El nombre es requerido.
+            </small>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Apellido</label>
+          <input type="text" class="form-control" id="apellido" formControlName="apellido" required />
+          <div class="text-danger m-auto" *ngIf=" encuestaForm.controls['apellido'].errors !== null && encuestaForm.controls['apellido'].touched " >
+            <small *ngIf="encuestaForm.controls['apellido'].errors!['required']">
+              El apellido es requerido.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email">Correo electronico</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">&#64;</span>
+          </div>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com" formControlName="email" required />
+        </div>
+        <div class="text-danger m-auto" *ngIf=" encuestaForm.controls['email'].errors !== null && encuestaForm.controls['email'].touched">
+          <small *ngIf="encuestaForm.controls['email'].errors!['required']">
+            El mail es requerido.
+          </small>
+          <small *ngIf="encuestaForm.controls['email'].errors!['email']">
+            El mail no es valido.
+          </small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="phoneNo">Numero de celular</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">#</span>
+              </div>
+              <input type="number" class="form-control" id="celNo" placeholder="" formControlName="celNo" required 
+                     (keypress)="validateNumber($event)" />
+            </div>
+            <div
+              class="text-danger m-auto" *ngIf="encuestaForm.controls['celNo'].errors !== null && encuestaForm.controls['celNo'].touched">
+              <small *ngIf="encuestaForm.controls['celNo'].errors!['required']">
+                El numero de celular es requerido.
+              </small>
+              <small *ngIf="encuestaForm.controls['celNo'].errors!['pattern']">
+                Tiene que contener 10 números.
+              </small>
+            </div>
+          </div>
+          
+
+        <div class="col-md-6 mb-3">
+          <label for="age">Edad</label>
+          <input type="number" class="form-control" id="edad" min="18" max="99" formControlName="edad" required />
+          <div class="text-danger m-auto" *ngIf=" encuestaForm.controls['edad'].errors !== null && encuestaForm.controls['edad'].touched " >
+            <small *ngIf="encuestaForm.controls['edad'].errors!['required']">
+              La edad es requerida.
+            </small>
+            <small *ngIf=" encuestaForm.controls['edad'].errors!['min'] || encuestaForm.controls['edad'].errors!['max'] ">
+              La edad tiene que ser entre 18 y 99.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <hr class="mb-4" />
+
+      <div class="row">
+        <div class="col-md-4 mb-4 form-check">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">¿Cual es tu juego favorito?</span>
+          </h4>
+          <div class="list-group">
+            <label class="list-group-item">
+                <input class="form-check-input" type="radio" name="favGame" value="ahorcado" formControlName="favGame" />
+              Ahorcado
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input" type="radio" name="favGame" value="mayor-menor" formControlName="favGame" />
+              Mayor o menor
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input" type="radio" name="favGame" value="preguntados" formControlName="favGame" />
+
+              Preguntados
+            </label>
+            <label class="list-group-item">
+              <input class="form-check-input" type="radio" name="favGame" value="aim-traini" formControlName="favGame" />
+              Aim traini
+            </label>
+            <label class="list-group-item">
+              <input class="form-check-input" type="radio" name="favGame" value="none" formControlName="favGame" />
+              ninguno
+            </label>
+          </div>
+          <div
+            class="text-danger m-auto" *ngIf="encuestaForm.controls['favGame'].errors !== null && encuestaForm.controls['favGame'].touched" >
+            <small *ngIf="encuestaForm.controls['favGame'].errors!['required']">
+              Seleciona su juego favorito.
+            </small>
+            <small *ngIf="encuestaForm.controls['favGame'].errors!['invalidGame']" >
+              Problema al elegir juego.Vuelva a elegir juego.
+            </small>
+          </div>
+        </div>
+
+        <div class="col-md-8 mb-4 form-check">
+          <div class="suggestion-container">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted">¿Tienes alguna sugerencia para nosotras?</span>
+            </h4>
+            <textarea type="text" rows="3" class="form-control overflow-y-scroll" id="sugerencia" formControlName="sugerencia"></textarea>
+            <div
+              class="text-danger m-auto" *ngIf="  encuestaForm.controls['sugerencia'].errors !== null && encuestaForm.controls['sugerencia'].touched ">
+              <small  *ngIf="encuestaForm.controls['sugerencia'].errors!['required']"  >
+                Si no tienes nada que sugerir, ¿qué te parece la página?
+              </small>
+              <small *ngIf="encuestaForm.controls['sugerencia'].errors!['maxlength']" >
+                El texto puede tener hasta 255 caracteres.
+              </small>
+            </div>
+          </div>
+
+          <div class="recommendation-container text-center">
+            <h4 class="d-flex justify-content-between align-items-center">
+              <span class="text-muted" >¿Qué tanto te gusto nuestra pagina?</span >
+            </h4>
+            <label for="recomRange" class="form-label">Del 0 to 5</label>
+            <input type="range" class="form-range" min="0" max="5" id="puntuacion" formControlName="puntuacion"  (input)="updateValue($event)" />
+            <span>{{ currentValue }}</span>  
+            </div>
+        </div>
+      </div>
+      <div class="center d-flex justify-content-center align-items-center">
+          <button class="btn dark-button btn-lg btn-block m-3 " type="submit" [disabled]="encuestaForm.invalid" >
+            Enviar encuesta
+          </button>
+
+      </div>
+      <div *ngIf="flag" class="overlay">
+          <div class="custom-alert error-alert">
+            <div class="custom-alert-header">
+              <span>Exito</span>
+              <span class="close-btn" (click)="otraEncuesta()">×</span> 
+            </div>
+            <div class="custom-alert-body">
+              Encuesta enviada con exito.
+            </div>
+            <div class="button-container center d-flex justify-content-center align-items-center " >
+                <button class=" home-btn" (click)="irHome()">Home</button>
+            </div>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
+

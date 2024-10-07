@@ -28,6 +28,7 @@ export class LoginComponent {
     if (!this.validarCampo()) {
       return;
     }
+    //poner que siempre las credenciales
     signInWithEmailAndPassword(this.auth, this.mail, this.contra).then((res) => {
       this.flagError = false;
       this.flagSuccess = true; 
