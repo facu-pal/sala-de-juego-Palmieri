@@ -1,0 +1,70 @@
+.main {
+	background-image: url('https://wallpapers.com/images/hd/game-night-background-poemd877bzft58ix.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.divTitulo {
+	background-color: rgba(240, 233, 233, 0.5);
+	height: 100px;
+	display: flex; 
+	justify-content: center; 
+	align-items: center;
+}
+
+.prueba{
+	height: 450px;	
+
+}
+.card{
+	background-color: rgba(240, 233, 233, 0.9);
+}
+
+button{
+	width: 200px;
+	border-radius: 3px;
+	padding: 5px 10px 10px 5px;
+	background-color: rgba(255, 255, 255, 0.68);
+	color: #1c1d1f;
+	text-align: center;
+}
+
+button.active{
+	background-color: #aedcff;
+}
+
+button:hover {
+    color:rgb(255, 255, 255);
+    background-color: #1c1d1fad;
+} 
+
+/*tabla*/
+.table {
+    border: 10px solid #343B55;
+    border-radius: 15px; 
+    overflow: hidden; 
+    border-collapse: separate;
+}
+
+table th{
+    background-color: #aedcff;
+}
+
+table.table-bordered td,
+table.table-bordered th {
+    border-right: none; 
+    border-left: none;
+}
+
+table.table-bordered tr td {
+    border-bottom: 1px solid #343B55; 
+}
+
+table.table-bordered tr th {
+    border-bottom: 1px solid #343B55; 
+}
+table{
+    background-color: aliceblue;
+}
+

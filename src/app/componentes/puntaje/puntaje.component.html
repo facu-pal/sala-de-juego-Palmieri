@@ -1,0 +1,52 @@
+<div class="main min-vh-100">
+	<header class="py-3">
+		<div class="container px-lg-5">
+			<div class="p-lg-2  rounded-3 text-center divTitulo" >
+				<div class="m-4 m-lg-5">
+					<h1 class="display-5 fw-bold image-text">Resultados</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+    <div class="d-flex justify-content-center mb-4 color-div">
+        <button [ngClass]="{'active': juegoSeleccionado === 'ahorcado'}" class="btn  mx-1" (click)="seleccionarJuego('ahorcado')">Ahorcado</button>
+        <button [ngClass]="{'active': juegoSeleccionado === 'mayor-menor'}" class="btn  mx-1" (click)="seleccionarJuego('mayor-menor')">Mayor o Menor</button>
+        <button [ngClass]="{'active': juegoSeleccionado === 'preguntados'}" class="btn  mx-1" (click)="seleccionarJuego('preguntados')">Preguntados</button>
+        <button [ngClass]="{'active': juegoSeleccionado === 'aim-trainer'}" class="btn  mx-1" (click)="seleccionarJuego('aim-trainer')">Aim trainer</button>
+      </div>
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center">
+    
+            <!-- Mostrar spinner cuando está cargando -->
+            <div *ngIf="cargando" class="spinner-border text-light" role="status">
+              <span class="visually-hidden">Cargando...</span>
+            </div>
+    
+            <!-- Mostrar tabla cuando no está cargando -->
+            <table *ngIf="!cargando" class="table table-bordered table-striped text-center table-responsive">
+              <thead>
+                <tr>
+                  <th scope="col">Puesto</th>
+                  <th scope="col">Puntaje</th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">Fecha</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let login of this.LoggerJuegoService.coleccionResultados; let i = index">
+                  <td scope="row">{{ i + 1 }}°</td>
+                  <td>{{ login.puntos }}</td>
+                  <td>{{ login.user }}</td>
+                  <td>{{ (login.fecha.seconds * 1000) | date:'dd-MM-yy HH:mm' }}</td>
+                </tr>
+              </tbody>
+            </table>
+    
+          </div>
+        </div>
+      </div>
+
+</div>

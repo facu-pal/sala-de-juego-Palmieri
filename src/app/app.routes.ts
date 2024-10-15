@@ -5,7 +5,7 @@ import { LoginComponent } from './componentes/login/login.component';
  import { SignUpComponent } from './componentes/sign-up/sign-up.component';
  import { ChatComponent } from './componentes/chat-room/chat/chat.component';
  import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
-
+import { PuntajeComponent} from './componentes/puntaje/puntaje.component'
 import { PageNotFoundComponent } from './componentes/page-not-found/page-not-found.component';
 
 
@@ -19,6 +19,8 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
 
     { path: 'sobreMi', component: AboutMeComponent },
+
+    { path: 'resultados', component: PuntajeComponent },
 
     { path: 'iniciarSesion',canActivate: [notLoggedGuard], component: LoginComponent },
 
